@@ -1,0 +1,25 @@
+{% extends 'usuario/base.html' %}
+
+{% block content %}
+
+<h3>{{ categoria.nombre }}</h3>
+
+<h2>Productos en esta categoría:</h2>
+<ul>
+    {% for producto in productos %}
+    <div class="card p-1 text-center col-lg-3">
+        <img src="{{producto.imagenURL}}" class="card-img-top" alt="...">
+        <div id="cart-row" class="card-body">
+            <h5 class="card-title">${{producto.precio}}</h5>
+            <p class="card-text">{{producto.nombre}}</p>
+            <p class="card-text">{{producto.medida}} {{producto.tipo_medida}}</p>
+            <a data-product="{{producto.id}}" data-action="add" class="btn btn-primary update-cart">Agregar al
+                carrito</a>
+            <a class="btn btn-outline-success" href="#">Ver</a>
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

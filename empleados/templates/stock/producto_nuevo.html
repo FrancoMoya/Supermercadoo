@@ -1,0 +1,25 @@
+{% extends 'usuario/base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/estilos-crear-cupon.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1>Formulario de Producto</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Guardar Producto</button>
+    </form>
+
+    <hr>
+
+    <h2>Agregar Categoria</h2>
+    <a href="{% url 'categoria_create' %}" class="btn btn-secondary">Agregar Categoria</a>
+</div>
+
+{% endblock %}
